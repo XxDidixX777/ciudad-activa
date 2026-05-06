@@ -1,26 +1,36 @@
 /* =============================================
-   ESTILOS DEL PERFIL
+   ESTILOS DEL PERFIL - v2.0
    ============================================= */
 
-.perfil-container {
-    max-width: 800px;
-    margin: 0 auto;
+.perfil-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.5s ease;
 }
 
-.perfil-header {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 30px;
-    text-align: center;
+.perfil-header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
 }
 
 .avatar-grande {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #0066cc 0%, #ff6b35 100%);
+    background: rgba(255, 255, 255, 0.25);
     color: white;
     display: flex;
     align-items: center;
@@ -28,24 +38,38 @@
     font-size: 3rem;
     font-weight: bold;
     margin: 0 auto 20px;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .perfil-header h2 {
-    margin-top: 0;
-    color: #0066cc;
-    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .perfil-email {
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .perfil-fecha {
-    color: #999;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
 }
+
+/* =============================================
+   STATS DEL PERFIL
+   ============================================= */
 
 .perfil-stats {
     display: grid;
@@ -56,45 +80,76 @@
 
 .stat-box {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
     text-align: center;
+    transition: var(--transition);
+    border-top: 4px solid var(--primary);
+    animation: slideInUp 0.5s ease;
+}
+
+.stat-box:nth-child(2) {
+    border-top-color: var(--success);
+}
+
+.stat-box:nth-child(3) {
+    border-top-color: var(--info);
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .stat-box h3 {
-    margin: 0 0 10px 0;
-    color: #666;
+    margin: 0 0 15px 0;
+    color: var(--gray);
     font-size: 0.9rem;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .stat-valor {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0066cc;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
 }
+
+.stat-box:nth-child(2) .stat-valor {
+    color: var(--success);
+}
+
+.stat-box:nth-child(3) .stat-valor {
+    color: var(--info);
+}
+
+/* =============================================
+   INFO DEL PERFIL
+   ============================================= */
 
 .perfil-info {
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
     padding: 30px;
     margin-bottom: 30px;
+    animation: slideInUp 0.6s ease;
 }
 
 .perfil-info h3 {
     margin-top: 0;
-    color: #0066cc;
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
 }
 
 .info-fila {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--gray-light);
 }
 
 .info-fila:last-child {
@@ -103,33 +158,48 @@
 
 .info-label {
     font-weight: 600;
-    color: #333;
+    color: var(--dark);
+    font-size: 1rem;
 }
 
 .info-valor {
-    color: #666;
+    color: var(--gray);
+    font-size: 1rem;
 }
 
+/* =============================================
+   ACCIONES DEL PERFIL
+   ============================================= */
+
 .perfil-acciones {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
-    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .perfil-acciones .btn {
-    padding: 12px 30px;
+    padding: 13px 20px;
+    font-weight: 600;
 }
+
+/* =============================================
+   REPORTES DEL USUARIO
+   ============================================= */
 
 .reportes-usuario {
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
     padding: 30px;
+    animation: slideInUp 0.7s ease;
 }
 
 .reportes-usuario h3 {
     margin-top: 0;
-    color: #0066cc;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .lista-reportes {
@@ -137,22 +207,124 @@
 }
 
 .lista-reportes li {
-    padding: 15px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    padding: 18px;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: var(--transition);
+    gap: 15px;
 }
 
 .lista-reportes li:hover {
-    background: #f9f9f9;
+    background: var(--lighter);
+    border-color: var(--primary);
 }
+
+.reporte-info {
+    flex: 1;
+}
+
+.reporte-titulo-perfil {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.reporte-fecha-perfil {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.sin-reportes-perfil {
+    text-align: center;
+    padding: 40px;
+    color: var(--gray);
+}
+
+.sin-reportes-perfil i {
+    font-size: 3rem;
+    color: var(--gray-light);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* =============================================
+   MODAL PARA EDITAR PERFIL
+   ============================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    width: 90%;
+    animation: slideInUp 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--dark);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
 
 @media (max-width: 768px) {
     .perfil-header {
-        padding: 20px;
+        padding: 30px 20px;
+    }
+
+    .perfil-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .avatar-grande {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
     }
 
     .perfil-stats {
@@ -160,10 +332,34 @@
     }
 
     .perfil-acciones {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
-    .perfil-acciones .btn {
-        width: 100%;
+    .info-fila {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .lista-reportes li {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
+
+@media (max-width: 480px) {
+    .perfil-header {
+        padding: 25px 15px;
+    }
+
+    .perfil-info,
+    .reportes-usuario {
+        padding: 20px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
