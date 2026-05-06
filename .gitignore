@@ -1,0 +1,36 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencias
+node_modules/
+vendor/
+
+# Archivos de configuración local
+config.local.php
+.env
+.env.local
+
+# Archivos de sesión y cache
+*.log
+*.tmp
+
+# Uploads
+uploads/
+!uploads/.gitkeep
+
+# Archivos sensibles
+*.pem
+*.key
+*.pub
+
+# Carpetas específicas
+.git/
+.github/
