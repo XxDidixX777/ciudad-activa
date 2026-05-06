@@ -1,5 +1,6 @@
 <?php
 $titulo_pagina = 'Registrarse - Ciudad Activa';
+$pagina_auth = true;
 $css_adicional = '../css/auth.css';
 require_once '../includes/header.php';
 
